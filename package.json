@@ -1,0 +1,19 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "eat that burger app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctevnan/burgers.git"
+  },
+  "author": "Carolyn Tevnan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctevnan/burgers/issues"
+  },
+  "homepage": "https://github.com/ctevnan/burgers#readme"
+}
