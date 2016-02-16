@@ -1,5 +1,6 @@
 var express = require('express');
-var bodyParser = require('bodyParser'):
+var method-override = require('method-override');
+var bodyParser = require('bodyParser');
 
 var app = express();
 //serve static content for the app from the "public" directory in the app directory
@@ -26,6 +27,18 @@ connection.connect(function(err) {
 };
 
 console.log('connected as id' + connection.threadId);
+
+//home get route
+  app.get('/', function(req,res) {
+      //mySQL commands
+      connection.query('SELECT * FROM burger_table;', function(err, data) {
+        if (err) throw err;
+          console.log('The solution is: ', data);
+          //res.send(col[0]);
+          res.render('index', {viewData: data});
+        });
+  });
+})
 
 var port = 3000;
 app.listen(port, function() {
