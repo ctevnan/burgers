@@ -1,3 +1,4 @@
+//this needs more work (see step 4 of model setup for hw)
 //import orm.js into burger.js
 var orm = require('../config/orm.js');
 
@@ -17,3 +18,4 @@ var burger_db = {
     orm.destroy()
   }
 }
+module.exports = burger;

@@ -1,3 +1,4 @@
+//this needs more work. (see step 7 of config section for hw)
 var connection = require('./connection.js');
 
 var orm = {
