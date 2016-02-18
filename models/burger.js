@@ -8,7 +8,7 @@ var burger_db = {
       cb(res)
     });
   },
-  create: function(nameInput,cb) {
+  create: function(nameInput, cb) {
     orm.create('burger_db', nameInput, 1, cb);
   },
   update: function(inputId, cb) {

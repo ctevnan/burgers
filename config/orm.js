@@ -11,22 +11,35 @@ var orm = {
  //    });
  //  },
 
- selectAll: function(burger_table, burger_name) {
-  var s = 'SELECT * FROM' + burger_table + 'WHERE burger_name = ?';
-      connection.query(s, [burger_name], function(err, res) {
-
+  selectAll: function(burger_table) {
+  var s = 'SELECT * FROM' + burger_table;
+      connection.query(s, [burger_table], function(err, res) {
+​
       console.log(result);
     });
-  }    
+  }     
  
-
- //reference function below 
-  findByName: function(tableInput, burger_name) {
-    var s = 'SELECT * FROM' + tableInput + 'WHERE burger_name = ?';
-    connection.query(s, [burger_name], function(err, res) {
+ insertOne: function(burger_table, burger_name) {
+  var s = 'INSERT INTO' + burger_table + 'VALUES' + (burger_name); 'INSERT INTO' + burger_table + 'SET' + burger_name="";
+      connection.query(s, [burger_table, burger_name], function(err, res) {
 
       console.log(result);
     });
-  },
-}
+  }
+
+  updateOne: function(burger_table, burger_name) {
+    var s = 'UPDATE' + burger_table + 'SET' burger_name='' 'WHERE' + id='';
+    connection.query(s, [burger_table, burger_name], function(err, res) {
+
+      console.log(result);
+    });
+  }
+
+  deleteOne: function(burger_table, burger_name) {
+    var s = 'ALTER TABLE' + burger_table + 'DROP COLUMN' + burger_name;
+    connection.query(s, [burger_table, burger_name], function(err, res) {
+
+    console.log(result);  
+    });
+  }
 module.exports = orm;
