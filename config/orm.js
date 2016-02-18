@@ -10,6 +10,17 @@ var orm = {
  //      console.log(result);
  //    });
  //  },
+
+ selectAll: function(burger_table, burger_name) {
+  var s = 'SELECT * FROM' + burger_table + 'WHERE burger_name = ?';
+      connection.query(s, [burger_name], function(err, res) {
+
+      console.log(result);
+    });
+  }    
+ 
+
+ //reference function below 
   findByName: function(tableInput, burger_name) {
     var s = 'SELECT * FROM' + tableInput + 'WHERE burger_name = ?';
     connection.query(s, [burger_name], function(err, res) {
