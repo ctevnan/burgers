@@ -17,47 +17,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-
+var routes = require('./controllers/burgers_controller.js');
+app.use('/', routes);
+app.use('/create', routes);
+app.use('/update', routes);
 
 var orm = require('./config/orm.js')
-
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'burgers_db'
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-
-    return;
-  }
-});
-
-console.log('connected as id' + connection.threadId);
-
-//home get route
-app.get('/', function(req,res) {
-  //mySQL commands
-  connection.query('SELECT * FROM burger_table;', function(err, data) {
-        if (err) throw err;
-          console.log('The solution is: ', data);
-          //res.send(col[0]);
-          res.render('index', {viewData: data});
-      });
-  });
-
-// post route
-app.post('/', function(req, res) {
-  //mysql commands
-  orm.selectAll('burger_table;', function(err, res) {
-    var data = {burger_data: res}
-  })
-     res.render("index", data);   
-})
 
 app.listen(PORT, function(err, res) {
   console.log("Listening on PORT " + PORT);
