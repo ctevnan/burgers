@@ -14,7 +14,17 @@
         {{#each burger_data}}
           {{#if this.devoured}}
             {{else}}
-              <div style="border-style: solid; width: 190px; margin-bottom: 20px; padding: 5px; background-color:Orange; color: white;">
+              <form method="POST" action="/update?_method=PUT">
+                <table class="table">
+                  <tr>
+                    <td><strong>{{this.burger_name}}</strong></td>
+                      <input type="hidden" class="form-control" value={{this.burger_name}} name="burger">
+                      <td><button class="btn btn-info" type="submit">Devour It.</button></td>
+                    </tr> 
+                  </table> 
+                </form> 
+                
+              <div style="border-style: solid; width: 190px; margin-bottom: 20px; padding: 5px;">
                   <div>
                         <pre>{{this.id}}. {{this.name}}</pre>
                         <pre>Burger count: {{this.burger_count}}</pre>
