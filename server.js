@@ -14,8 +14,10 @@ app.use('/static', express.static('public'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.engine('handlebars', expbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+
 
 var orm = require('./config/orm.js')
 
@@ -57,7 +59,6 @@ app.post('/', function(req, res) {
      res.render("index", data);   
 })
 
-var PORT = 3000;
-app.listen(PORT, function() {
-  console.log("Listening on port %s" + PORT);
-});
+app.listen(PORT, function(err, res) {
+  console.log("Listening on PORT " + PORT);
+})
