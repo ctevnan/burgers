@@ -1,10 +1,19 @@
-<div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
      <h1>EAT da BURGER</h1>
-</div> 
-<div>
-      <div>
+    </div>
+  </div>  
+<div class="row">
+  <div class="col-xs-12">
+    <img src="../../static/images/Hamburger_PNG.png" alt="No Image today. Come back later." />
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4">    
         {{#each burger_data}}
-              {{#if this.active}}
+          {{#if this.devoured}}
+            {{else}}
               <div style="border-style: solid; width: 190px; margin-bottom: 20px; padding: 5px; background-color:Orange; color: white;">
                   <div>
                         <pre>{{this.id}}. {{this.name}}</pre>
@@ -22,6 +31,8 @@
                               <button type="sumbit" class="btn btn-default">Remove</button>
                         </form>
                   </div>
+            }
+            }
       </div>
       {{/if}}
     {{/each}} 
