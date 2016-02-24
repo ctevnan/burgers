@@ -1,18 +1,23 @@
 var envs = require('dotenv').config();;
 var express = require('express');
-var expressHandlebars = require('express-handlebars');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
+var PORT = process.env.NODE_ENV || 3000;
 //heroku config will make the jawsdb url for you
+
 var app = express();
+
 //serve static content (burger.png)for the app from the "public" directory in the app directory
 app.use('/static', express.static('public'));
 
-var orm = require('./config/orm.js')
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({extended: false}));
 
-var expbs = require('express-handlebars');
 app.engine('handlebars', expbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+var orm = require('./config/orm.js')
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
