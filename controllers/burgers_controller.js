@@ -4,9 +4,9 @@ var burger = require('../models/burger.js');
 
 //get route -> index
 router.get('/', function(req,res) {
-      console.log('yesss')
+      console.log(yesss);
       burger.all(function(burger_data) {
-          console.log('got here!')
+          console.log(got here!);
           res.render('index', {burger_data: burger_data});
       });
 });

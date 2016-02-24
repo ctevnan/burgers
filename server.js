@@ -1,10 +1,12 @@
+var envs = require('dotenv').config();;
 var express = require('express');
-var method_override = require('method-override');
+var expressHandlebars = require('express-handlebars');
+var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
-
+//heroku config will make the jawsdb url for you
 var app = express();
-//serve static content for the app from the "public" directory in the app directory
-app.use(express.static(__dirname + '/public'));
+//serve static content (burger.png)for the app from the "public" directory in the app directory
+app.use('/static', express.static('public'));
 
 var orm = require('./config/orm.js')
 
@@ -16,7 +18,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '525125Ct1987',
+  password: '',
   database: 'burgers_db'
 });
 
@@ -50,7 +52,7 @@ app.post('/', function(req, res) {
      res.render("index", data);   
 })
 
-var port = 3000;
-app.listen(port, function() {
-  console.log("Listening on PORT" + port);
+var PORT = 3000;
+app.listen(PORT, function() {
+  console.log("Listening on port %s" + PORT);
 });
