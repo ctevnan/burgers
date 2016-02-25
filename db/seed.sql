@@ -1,1 +1,1 @@
-INSERT INTO burgers (burger_name, devoured) VALUES ("Royale with Cheese" false), ("Blue Cheese with Bacon", false);
+INSERT INTO burger_table (burger_name, devoured) VALUES ("Royale with Cheese", false), ("Blue Cheese with Bacon", false);

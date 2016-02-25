@@ -8,11 +8,12 @@ var PORT = process.env.NODE_ENV || 3000;
 
 var app = express();
 
-//serve static content (burger.png)for the app from the "public" directory in the app directory
-app.use('/static', express.static('public'));
+//serve static content (burger.png)for the app from the "public" directory 
+//in the app directory
+app.use(express.static('public'));
 
-app.use(methodOverride('_method'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use('method-override'('_method'));
+app.use('body-parser.urlencoded'({extended: false}));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
