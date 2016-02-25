@@ -11,22 +11,19 @@ router.get('/', function(req,res) {
 
 //post route -> back to index
 router.post('/create', function(req, res) {
-      burger.create(req.body.burger_name, function(result){
-           res.redirect('/');
-      });
+  actions.addBurger(req.body.entry, function(result) {
+    res.redirect('/');
+  });
 });
 
 //put route -> back to index
 router.put('/update', function(req, res) {
-      burger.update(req.body.burger_id, function(result) {
-             res.redirect('/');
-      });
+  actions.eatBurger(req.body.burger, function(result) {
+    console.log(req.body);
+    console.log(req.body.burger);
+    console.log(result);
+    res.redirect('/');
+  });
 });
 
-//delete route -> back to index
-router.delete('/destroy', function(req, res) {
-      burger.destroy(req.body.burger_id, function(result) {
-            res.redirect('/');
-      });
-});
 module.exports = router;
