@@ -4,14 +4,15 @@ var orm = require('../config/orm.js');
 var actions = {
   showBurgers: function(cb) {
     orm.selectBurgers(function(res) {
-      cb(res);
+      callback(res);
     });
   },
   addBurger: function(burger_name, cb) {
-    orm.insertBurger(burger_name, cb);
+    orm.insertBurger(burger_name, callback);
   },
   eatBurger: function(burger_name, cb) {
-    orm.updateBurger(burger_name, cb);
+    orm.updateBurger(burger_name, callback);
   }
 };
+
 module.exports = actions;
