@@ -8,33 +8,20 @@ var orm = {
     cb(rows);  
     });
   },
-  selectAll : function() {
-     'SELECT * FROM' + burger_table;
-      connection.query(s, [burger_table]), function(err, res) {
-        console.log(result);
-      callback(err, res);  
-    };
+  insertBurger: function(burger_input, cb) {
+    var s = "INSERT INTO burgers (burger_name) VALUES (?)";
+    connection.query(s, [burger_input]), function(err, rows, fields) {
+      if (err) throw err;
+      cb(rows);  
+    });
   }, 
- insertInto : function(burger_table, burger_name, callback) {
-  'INSERT INTO + burger_table' + 'VALUES + (burger_name)' + 'SET + burger_name'
-      connection.query(s, [burger_table, burger_name]), function(err, res) {
-        console.log(result);
-      callback(null, res);
-    };
-  },
-  updateOne: function(burger_table, burger_name, callback) {
-    'UPDATE + burger_table' + 'SET + burger_name' + 'WHERE + id'
-    connection.query(s, [burger_table, burger_name]), function(err, res) {
-      console.log(result);
-      callback(err, res);
-    };
-  },
-  deleteOne: function(burger_table, burger_name, callback) {
-   'ALTER TABLE' + burger_table + 'DROP COLUMN' + burger_name
-    connection.query(s, [burger_table, burger_name]), function(err, res) {
-      console.log(result);
-    callback(err, res);  
-    };
+  updateBurger: function(burger_input, cb) {
+    var s = "UPDATE burgers SET devoured=1 WHERE burger_name=?";
+    connection.query(s, [burger_input], function(err, rows, fields) {
+      if (err) throw err;
+      cb(rows);
+    });
   }
-}
+};
+
 module.exports = orm;
