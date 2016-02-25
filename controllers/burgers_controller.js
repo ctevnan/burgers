@@ -1,14 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var burger = require('../models/burger.js');
+var actions = require('../models/burger.js');
 
 //get route -> index
 router.get('/', function(req,res) {
-      console.log(yesss);
-      burger.all(function(burger_data) {
-          console.log(got here!);
-          res.render('index', {burger_data: burger_data});
-      });
+  actions.showBurgers(function(burger_data) {    
+  res.render('index', {burger_data});
+  });
 });
 
 //post route -> back to index
