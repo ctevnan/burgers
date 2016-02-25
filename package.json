@@ -2,18 +2,20 @@
   "name": "burger",
   "version": "1.0.0",
   "description": "eat that burger app",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ctevnan/burgers.git"
-  },
-  "author": "Carolyn Tevnan",
+  "author": "CTevnan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ctevnan/burgers/issues"
-  },
-  "homepage": "https://github.com/ctevnan/burgers#readme"
+  "dependencies": {
+   "body-parser": "^1.14.2",
+   "dotenv": "^2.0.0",
+   "envs": "^0.1.6",
+   "express": "^4.13.4",
+   "express-handlebars": "^3.0.0",
+   "method-override": "^2.3.5",
+   "mysql": "^2.10.2"
+  }
 }

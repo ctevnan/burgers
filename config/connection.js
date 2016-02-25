@@ -1,19 +1,9 @@
 var mysql = require('mysql');
 
-console.log(process.env.)
-var connection = mysql.createConnection({
-//  port: 3000,
-//  user: 'root',
-//  password: '',
-//  database: 'burgers_db'
-//});
+console.log(process.env.JAWSDB_URL);
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
+console.log("connection to db");
 
-//connection.connect(function(err) {
-//  if (err) {
-//    console.error('error connecting:'+err.stack);
-//    return;
-//  }
-//  console.log('connected as id' + connection.threadId);
-});
+connection.connect();
 
 module.exports = connection;
