@@ -1,12 +1,11 @@
-//this needs more work. (see step 7 of config section for hw)
 var connection = require('./connection.js');
 
 var orm = {
- updateName: function() {
-     'SELECT burger_name FROM ' + tableInput;
-        connection.query(s, function(err, result) {
-
-        console.log(result);
+ selectBurgers: function(cb) {
+    var s = "SELECT * FROM burgers";
+    connection.query(s, function(err, rows, fields) {
+    if (err) throw err;
+    cb(rows);  
     });
   },
   selectAll : function() {
