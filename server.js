@@ -1,5 +1,6 @@
-var envs = require('dotenv').config();;
+//var envs = require('dotenv').config();;
 var express = require('express');
+var mysql = require('mysql');
 //var methodOverride = require('method-override');
 //var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
