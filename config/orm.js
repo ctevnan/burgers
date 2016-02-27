@@ -14,7 +14,7 @@ var orm = {
   // add burger 
   insertBurger: function(tableInput, nameInput) {
     var plusBurg = 'INSERT INTO' + tableInput + ' (burger_name, devoured) VALUES (?, ?)';
-    connection.query(plusBurg, [nameInput, 0], function(err, result {
+    connection.query(plusBurg, [nameInput, 0], function(err, result) {
       if (err) throw err; 
     });
   }, 

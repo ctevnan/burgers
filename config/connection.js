@@ -2,7 +2,7 @@ var mysql = require('mysql');
 //var connection = mysql.createConnection(process.env.JAWSDB_URL);
 var connection = mysql.createConnection({
    port: 3306,
-   host: "localhost"
+   host: "localhost",
    user: "root",
    database: "burgers_db"
 });
