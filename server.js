@@ -30,8 +30,6 @@ app.use('/create', routes);
 app.use('/update', routes);
 app.use('/delete', routes);
 
-//var orm = require('./config/orm.js')
-
 app.listen(PORT, function() {
   console.log("Listening on port %s", PORT);
 });

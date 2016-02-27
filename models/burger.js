@@ -3,15 +3,21 @@ var orm = require('../config/orm.js');
 
 var actions = {
   showBurgers: function(cb) {
-    orm.selectBurgers(function(res) {
-      callback(res);
+    orm.showBurgers(function(res) {
+      cb(res);
     });
   },
-  addBurger: function(burger_name, cb) {
-    orm.insertBurger(burger_name, callback);
+  insertBurger: function(nameInput, devoured) {
+    orm.insertBurger('actions', nameInput, 0);
   },
-  eatBurger: function(burger_name, cb) {
-    orm.updateBurger(burger_name, callback);
+  reupdateBurger: function(inputId) {
+    orm.reupdateBurger('actions', inputId);
+  },
+  updateBurger: function(inputId) {
+    orm.updateBurger('actions', inputId);
+  },
+  deleteBurger: function(inputId) {
+    orm.deleteBurger('actions', inputId);
   }
 };
 

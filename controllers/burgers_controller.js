@@ -4,14 +4,14 @@ var actions = require('../models/burger.js');
 
 //get route -> index
 router.get('/', function(req,res) {
-  actions.seeBurg(function(burger_data) {    
+  actions.showBurgers(function(burger_data) {    
     res.render('', {burger_data});
   });
 });
 
 //post route -> back to index
 router.post('/create', function(req, res) {
-  actions.plusBurg(req.body.burger_name, function(result) {
+  actions.insertBurger(req.body.burger_name, function(result) {
     console.log(result);
   });
   res.redirect('/');
@@ -19,25 +19,24 @@ router.post('/create', function(req, res) {
 
 //put route -> back to index
 router.put('/update', function(req, res) {
-  actions.tfBurg(req.body.burger_id, function(result) {
-    //console.log(req.body);
-    //console.log(req.body.burger);
+  actions.reupdateBurger(req.body.burger_id, function(result) {
     console.log(result);
   });
   res.redirect('/');
 });
 //delete route -> back to index
 router.delete('/delete', function(req, res) {
-  actions.nomBurg(req.body.burger_id, function(result) {
+  actions.updateBurger(req.body.burger_id, function(result) {
     console.log(result);
   });
-  res.redirect('/')
+  res.redirect('/');
 });
 //delete route -> back to index, burger gone
 router.delete('/remove', function(req,res) {
-  actions.noBurg(req.body.burger_id, function(result) {
+  actions.deleteBurger(req.body.burger_id, function(result) {
     console.log(result);
   });
+  res.redirect('/');
 });
 
 module.exports = router;
