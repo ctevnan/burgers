@@ -2,10 +2,8 @@
 var orm = require('../config/orm.js');
 
 var actions = {
-  showBurgers: function(cb) {
-    orm.showBurgers(function(res) {
-      cb(res);
-    });
+  showBurgers: function(tableInput) {
+    orm.showBurgers(tableInput);
   },
   insertBurger: function(nameInput, devoured) {
     orm.insertBurger('actions', nameInput, 0);
