@@ -4,8 +4,8 @@ var actions = require('../models/burger.js');
 
 //get route -> index
 router.get('/', function(req,res) {
-  actions.showBurgers(function(burger_data) {    
-    res.render('index', {burger_data});
+  actions.showBurgers(function(tableInput) {    
+    res.render('index', {burger_table});
   });
 });
 

@@ -1,1 +1,1 @@
-INSERT INTO burger_table (burger_name, devoured) VALUES ("Rutgers Burger", false), ("Blue Cheeseburger with Bacon", false);
+INSERT INTO 'burger_table' ('id', 'burger_name', 'devoured', 'date') VALUES ('NO NULL', 'cheeseburger', 'false', '2016-02-28');
