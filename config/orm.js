@@ -1,19 +1,22 @@
 var connection = require('../config/connection.js');
 
 var orm = {
-  //see the burgers in db
- showBurgers: function(tableInput) {
-  var seeBurg = 'SELECT * FROM ' + burger_table + ';';
-  connection.query(seeBurg, function(err, result) {
+  //see all the burgers in db
+ showBurgers: function(table, cb) {
+  var query = 'SELECT * FROM ' + table;
+  console.log('table: ' + table);
+  console.log('cb: ' + cb);
+  connection.query(query, function (err, results) {
     if (err) {
       throw err;
     }
-    console.log(result);
+    console.log('results from db table: ' + results);
+    cb(results);
   });
   }, 
   // add burger 
   insertBurger: function(tableInput, nameInput) {
-    var plusBurg = 'INSERT INTO ' + burger_table + ' (burger_name, devoured) VALUES (?, ?)';
+    var query = 'INSERT INTO ' + table + ' (burger_name, devoured) VALUES (?, ?)';
     connection.query(plusBurg, [nameInput, 0], function(err, result) {
       if (err) {
        throw err;

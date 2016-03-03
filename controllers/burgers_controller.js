@@ -3,9 +3,15 @@ var router = express.Router();
 var actions = require('../models/burger.js');
 
 //get route -> index
-router.get('/', function(req,res) {
-  actions.showBurgers(function(tableInput) {    
-    res.render('index', {burger_table});
+router.get('/', function (req, res) {
+  console.log('show all burgers');
+  actions.showAllBurgers(function (burgerData) {
+    console.log('burgerData from orm: ' + burgerData);
+    var burgerTableData = {
+      burgers: burgerData
+    }
+    console.log('burgerTableData');    
+    res.render('home', burgerTableData);
   });
 });
 

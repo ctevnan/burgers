@@ -2,20 +2,24 @@
 var orm = require('../config/orm.js');
 
 var actions = {
-  showBurgers: function(tableInput) {
-    orm.showBurgers(burger_table);
+  showBurgers: function(cb) {
+    console.log('cb data retrieval from orm' + cb);
+    console.log('show burgers');
+      orm.showAllBurgers('burgers', function (res) {
+      cb(res);
+    });
   },
   insertBurger: function(nameInput, devoured) {
     orm.insertBurger('actions', nameInput, 0);
   },
   reupdateBurger: function(inputId) {
-    orm.reupdateBurger('actions', idInput);
+    orm.reupdateBurger('actions', id);
   },
   updateBurger: function(inputId) {
-    orm.updateBurger('actions', idInput);
+    orm.updateBurger('actions', id);
   },
   deleteBurger: function(idInput) {
-    orm.deleteBurger('actions', idInput);
+    orm.deleteBurger('actions', id);
   }
 };
 
